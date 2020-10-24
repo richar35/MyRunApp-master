@@ -1,0 +1,39 @@
+﻿@model MyRunApp.Models.Shoe
+@{
+    ViewData["Title"] = "Shoes";
+}
+
+<h2>Shoe List</h2>
+<a asp-controller="Movie" asp-action="Add">Add New Shoe</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Name</th>
+            <th>Use</th>
+            <th>Support</th>
+            <th>Color</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shoe in Shoe)
+        {
+        <tr>
+            <td>@shoe.Brand
+
+            <td>@shoe.Name
+
+            <td>@shoe.Use
+
+            <td>@shoe.Support
+            
+            <td>@shoe.Color.Name</td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@shoe.ShoeId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@shoe.ShoeId">Delete</a>
+                </td>
+             </tr>
+        }
+    </tbody>
+</table>

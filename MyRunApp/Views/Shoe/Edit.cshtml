@@ -1,0 +1,42 @@
+﻿@model Shoe
+@{
+    string title = ViewBag.Action + " Shoe"; ViewBag.Title = title;
+}
+<h2>@ViewBag.Title</h2>
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Brand">Name</label>
+        <input asp-for="Brand" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Use">Use</label>
+        <input asp-for="Use" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Support">Support</label>
+        <input asp-for="Support" class="form-control">
+    </div>
+    @*<div class="form-group">
+        <label asp-for="Size">Rating</label>
+        <input asp-for="Size" class="form-control">
+    </div>*@
+    @*@<div class="form-group">
+        <label asp-for="GenreId">Genre</label>
+        <select asp-for="GenreId" class="form-control">
+            <option value="">select a genre</option>
+            @foreach (Genre g in ViewBag.Genres)
+            {
+                <option value="@g.GenreId">@g.Name</option>
+            }
+        </select>
+    </div>*@
+    <input type="hidden" asp-for="ShoeId" />
+    <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>
